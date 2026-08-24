@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ACE — Suivi des pronostics tennis</title>
+<meta name="description" content="Suivi public et vérifiable des pronostics tennis du modèle ACE.">
+<style>
+:root{--bg:#fbfbfc;--surf:#fff;--ink:#16181d;--ink2:#6b7280;--bd:#e5e7eb;
+  --s1:#2563eb;--pos:#0f9d58;--neg:#d93025}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1115;--surf:#171a21;--ink:#e8eaed;
+  --ink2:#9aa0a6;--bd:#2a2f3a;--s1:#7aa2ff;--pos:#4ade80;--neg:#f87171}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:940px;margin:0 auto;padding:32px 18px 64px}
+header{margin-bottom:28px}
+h1{margin:0;font-size:28px;letter-spacing:-.02em}
+h1 span{color:var(--s1)}
+.sub{color:var(--ink2);font-size:14px;margin-top:6px}
+h2{font-size:16px;margin:36px 0 14px;letter-spacing:-.01em}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.t{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
+.t .l{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink2)}
+.t .v{font-size:25px;font-weight:650;margin-top:4px;letter-spacing:-.02em}
+.t .s{font-size:11.5px;color:var(--ink2);margin-top:3px;line-height:1.45}
+.pos{color:var(--pos)} .neg{color:var(--neg)}
+.pick{background:var(--surf);border:1px solid var(--bd);border-radius:12px;
+  padding:15px 17px;margin-bottom:11px}
+.ph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.tn{font-size:11.5px;font-weight:700;letter-spacing:.07em;color:var(--s1);
+  text-transform:uppercase}
+.dt{font-size:12px;color:var(--ink2)}
+.jr{font-weight:620;margin-top:5px;font-size:16px}
+.bet{margin-top:9px}
+.mt{margin-top:3px;color:var(--ink2);font-size:14px}
+.mt b{color:var(--ink);font-size:16px}
+.ci{color:var(--ink2);font-size:13px}
+.an{margin:12px 0 0;padding-top:11px;border-top:1px solid var(--bd);
+  color:var(--ink2);font-size:14px}
+.bkin{color:var(--ink2)}
+.bk{margin-top:11px;font-size:13.5px;color:var(--ink2)}
+.bk b{color:var(--ink)}
+.cta{display:inline-block;margin-top:13px;background:var(--s1);color:#fff;
+  text-decoration:none;font-weight:600;font-size:13.5px;padding:9px 15px;
+  border-radius:9px}
+.cta:hover{opacity:.88}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--ink2);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--bd)}
+td{padding:10px;border-bottom:1px solid var(--bd);vertical-align:top}
+td.n,th.n{text-align:right;white-space:nowrap}
+td.nw{white-space:nowrap;color:var(--ink2)}
+.tn2{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--s1);
+  text-transform:uppercase}
+.chip{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11.5px;
+  font-weight:600;border:1px solid var(--bd)}
+.chip.win{color:var(--pos);border-color:var(--pos)}
+.chip.loss{color:var(--neg);border-color:var(--neg)}
+.empty{color:var(--ink2);padding:18px 0;text-align:center}
+/* Sous 700 px, le tableau devient une liste de cartes : en scroll horizontal,
+   « Résultat » et « Gain » — les deux colonnes qui font la crédibilité d'un
+   track record — sortaient de l'écran sur mobile. */
+@media(max-width:700px){
+  table{min-width:0;display:block}
+  thead{display:none}
+  tbody,tr,td{display:block;width:100%}
+  tr{background:var(--surf);border:1px solid var(--bd);border-radius:12px;
+    padding:12px 14px;margin-bottom:10px}
+  td{border:0;padding:3px 0;display:flex;justify-content:space-between;gap:14px;
+    align-items:baseline}
+  td::before{content:attr(data-l);color:var(--ink2);font-size:11px;
+    text-transform:uppercase;letter-spacing:.05em;flex:0 0 auto}
+  td.n,td.nw{text-align:right}
+  td[data-l="Match"]{display:block;padding-bottom:8px}
+  td[data-l="Match"]::before{display:none}
+}
+.note{background:var(--surf);border:1px solid var(--bd);border-left:3px solid var(--s1);
+  border-radius:10px;padding:12px 15px;font-size:13.5px;color:var(--ink2);margin:20px 0}
+footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--bd);
+  font-size:12.5px;color:var(--ink2)}
+
+.chartwrap{margin:0 0 10px}
+.chartcard{background:var(--surf);border:1px solid var(--bd);border-radius:12px;
+  padding:16px 18px 12px;margin-bottom:12px}
+.chartcard h3{margin:0 0 2px;font-size:14px;font-weight:650}
+.chartcard .cap{font-size:12px;color:var(--ink2);margin-bottom:10px}
+.chartcard svg{display:block;width:100%;height:auto;overflow:visible}
+.seg{display:inline-flex;gap:2px;background:var(--bg);border:1px solid var(--bd);
+  border-radius:9px;padding:2px;margin-left:auto}
+.seg button{border:0;background:none;color:var(--ink2);font:inherit;font-size:12px;
+  padding:5px 12px;border-radius:7px;cursor:pointer}
+.seg button.on{background:var(--s1);color:#fff;font-weight:600}
+.chead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.chead div{min-width:0}
+#tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .09s;
+  background:var(--ink);color:var(--bg);font-size:12px;line-height:1.45;
+  padding:7px 10px;border-radius:8px;white-space:pre;z-index:9;
+  box-shadow:0 4px 16px rgba(0,0,0,.22)}
+.gline{fill:none;stroke:var(--s1);stroke-width:2;stroke-linejoin:round}
+.gdot{fill:var(--s1);opacity:0;r:3.5}
+.gdot:hover,.gdot.on{opacity:1}
+.ghit{fill:transparent;cursor:pointer}
+.gzero{stroke:var(--bd);stroke-dasharray:3 3}
+.glabel{fill:var(--ink2);font-size:10.5px}
+.gbar{cursor:pointer}
+.gbar:hover{opacity:.78}
+
+</style></head><body><div class="wrap">
+<header>
+  <h1>Modèle <span>ACE</span></h1>
+  <div class="sub">Suivi public des pronostics tennis · bankroll de référence
+    10 000 €, mises exprimées en % du capital</div>
+</header>
+
+<div class="tiles"><div class="t"><div class="l">Picks suivis</div><div class="v">36</div><div class="s">31 réglés · 5 en cours</div></div><div class="t"><div class="l">ROI</div><div class="v"><span class="pos">14,3 %</span></div><div class="s">intervalle de confiance 95 % : -21 % à 45 %</div></div><div class="t"><div class="l">Réussite</div><div class="v">57 %</div><div class="s">sur 31 paris réglés</div></div><div class="t"><div class="l">Résultat</div><div class="v"><span class="pos">+217 €</span></div><div class="s">pour 1 515 € engagés</div></div></div>
+
+<div class="note">Tous les picks publiés sont listés ici, gagnants comme perdants,
+  avec la cote réellement obtenue. Sur un échantillon de cette taille, le résultat
+  reste largement dû au hasard — c'est pourquoi l'intervalle de confiance est
+  affiché à côté du ROI plutôt que caché.</div>
+
+<div class="chartwrap">
+  <div class="chartcard">
+    <div class="chead"><div><h3>Évolution du résultat</h3>
+      <div class="cap">Cumul jour après jour, sur les paris réglés.</div></div></div>
+    <div id="cumchart"></div>
+  </div>
+  <div class="chartcard">
+    <div class="chead"><div><h3>Résultat par période</h3>
+      <div class="cap">Survole une colonne pour le détail.</div></div>
+      <div class="seg">
+        <button data-g="jour" class="on">Jour</button>
+        <button data-g="semaine">Semaine</button>
+        <button data-g="mois">Mois</button>
+      </div></div>
+    <div id="barchart"></div>
+  </div>
+</div>
+
+<h2>Picks en cours</h2>
+<article class="pick">
+      <div class="ph"><span class="tn">WTA Monterrey</span>
+        <span class="dt">2026-08-24</span></div>
+      <div class="jr">Camila Osorio — Ann Li</div>
+      <div class="bet">🎯 Ann Li gagne au moins 1 set</div>
+      <div class="mt"><b>1,51</b> · mise 1,0 %
+        <span class="ci">(100 €)</span>
+        </div>
+      
+      
+    </article><article class="pick">
+      <div class="ph"><span class="tn">ATP Winston Salem</span>
+        <span class="dt">2026-08-24</span></div>
+      <div class="jr">Kamil Majchrzak — Benjamin Bonzi</div>
+      <div class="bet">🎯 Benjamin Bonzi gagne le match</div>
+      <div class="mt"><b>2,38</b> · mise 0,5 %
+        <span class="ci">(50 €)</span>
+        </div>
+      
+      
+    </article><article class="pick">
+      <div class="ph"><span class="tn">WTA Monterrey</span>
+        <span class="dt">2026-08-24</span></div>
+      <div class="jr">Diane Parry — Donna Vekic</div>
+      <div class="bet">🎯 Diane Parry gagne le match</div>
+      <div class="mt"><b>2,30</b> · mise 0,5 %
+        <span class="ci">(50 €)</span>
+        </div>
+      
+      
+    </article><article class="pick">
+      <div class="ph"><span class="tn">WTA Monterrey</span>
+        <span class="dt">2026-08-24</span></div>
+      <div class="jr">Camila Osorio — Ann Li</div>
+      <div class="bet">🎯 Ann Li gagne le match</div>
+      <div class="mt"><b>2,00</b> · mise 0,5 %
+        <span class="ci">(50 €)</span>
+        </div>
+      
+      
+    </article><article class="pick">
+      <div class="ph"><span class="tn">ATP Winston Salem</span>
+        <span class="dt">2026-08-24</span></div>
+      <div class="jr">Lorenzo Sonego — Vit Kopriva</div>
+      <div class="bet">🎯 Lorenzo Sonego gagne le match</div>
+      <div class="mt"><b>1,61</b> · mise 0,4 %
+        <span class="ci">(35 €)</span>
+        </div>
+      
+      
+    </article>
+
+<h2>Historique</h2>
+<div class="scroll"><table>
+<thead><tr><th>Date</th><th>Match</th><th>Pari</th><th class="n">Cote</th>
+<th class="n">Mise</th><th>Résultat</th><th class="n">Gain</th></tr></thead>
+<tbody><tr>
+      <td class="nw" data-l="Date">2026-08-23</td>
+      <td data-l="Match"><span class="tn2">ATP Winston Salem</span><br>Giovanni Mpetshi Perricard — Jenson Brooksby</td>
+      <td data-l="Pari">Giovanni Mpetshi Perricard gagne le match</td>
+      <td class="n" data-l="Cote">2,38</td>
+      <td class="n" data-l="Mise">0,4 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-35 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-23</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Arthur Fils — Frances Tiafoe</td>
+      <td data-l="Pari">Frances Tiafoe gagne le match</td>
+      <td class="n" data-l="Cote">2,75</td>
+      <td class="n" data-l="Mise">0,4 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-35 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-21</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Taylor Fritz — Brandon Nakashima</td>
+      <td data-l="Pari">Brandon Nakashima gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,60</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+30 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-21</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Lorenzo Musetti — Frances Tiafoe</td>
+      <td data-l="Pari">Frances Tiafoe gagne le match</td>
+      <td class="n" data-l="Cote">2,00</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+50 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-21</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Coco Gauff — Marta Kostyuk</td>
+      <td data-l="Pari">Coco Gauff gagne le match</td>
+      <td class="n" data-l="Cote">1,73</td>
+      <td class="n" data-l="Mise">0,4 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+26 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-20</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Iga Swiatek — Elena Rybakina</td>
+      <td data-l="Pari">Elena Rybakina gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,73</td>
+      <td class="n" data-l="Mise">1,0 %</td>
+      <td data-l="Résultat"><span class="chip vd">Annulé</span></td>
+      <td class="n " data-l="Gain">+0 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-20</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Iga Swiatek — Elena Rybakina</td>
+      <td data-l="Pari">Elena Rybakina gagne le match</td>
+      <td class="n" data-l="Cote">2,50</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip vd">Annulé</span></td>
+      <td class="n " data-l="Gain">+0 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-20</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Thiago Agustin Tirante — Arthur Fils</td>
+      <td data-l="Pari">Thiago Agustin Tirante gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">2,06</td>
+      <td class="n" data-l="Mise">0,4 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-35 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-20</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Sara Bejlek — Madison Keys</td>
+      <td data-l="Pari">Sara Bejlek gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,94</td>
+      <td class="n" data-l="Mise">1,0 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+94 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-19</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Alexander Zverev — Tommy Paul</td>
+      <td data-l="Pari">Tommy Paul gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,86</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+43 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-19</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Arthur Fils — Alex de Minaur</td>
+      <td data-l="Pari">Alex De Minaur gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,70</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-50 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-19</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Jaime Faria — Lorenzo Musetti</td>
+      <td data-l="Pari">Jaime Faria gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,86</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-50 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-19</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Arthur Fils — Alex de Minaur</td>
+      <td data-l="Pari">Alex De Minaur gagne le match</td>
+      <td class="n" data-l="Cote">2,50</td>
+      <td class="n" data-l="Mise">0,4 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-35 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-19</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Frances Tiafoe — Felix Auger-Aliassime</td>
+      <td data-l="Pari">Frances Tiafoe gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,73</td>
+      <td class="n" data-l="Mise">1,0 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+73 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-19</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Aryna Sabalenka — Sara Bejlek</td>
+      <td data-l="Pari">Sara Bejlek gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">2,82</td>
+      <td class="n" data-l="Mise">0,4 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+64 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-19</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Coco Gauff — Marie Bouzkova</td>
+      <td data-l="Pari">Marie Bouzkova gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">2,26</td>
+      <td class="n" data-l="Mise">0,4 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-35 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-18</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Marie Bouzkova — Iva Jovic</td>
+      <td data-l="Pari">Marie Bouzkova gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,70</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+35 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-18</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Learner Tien — Frances Tiafoe</td>
+      <td data-l="Pari">Frances Tiafoe gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,51</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+26 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-18</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Jaime Faria — Adam Walton</td>
+      <td data-l="Pari">Adam Walton gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,51</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+26 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-18</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Janice Tjen — Mirra Andreeva</td>
+      <td data-l="Pari">Janice Tjen gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">2,82</td>
+      <td class="n" data-l="Mise">0,4 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-35 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-18</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Katerina Siniakova — Madison Keys</td>
+      <td data-l="Pari">Katerina Siniakova gagne le match</td>
+      <td class="n" data-l="Cote">3,50</td>
+      <td class="n" data-l="Mise">0,4 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-35 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-17</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Linda Noskova — Clara Tauson</td>
+      <td data-l="Pari">Clara Tauson gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,86</td>
+      <td class="n" data-l="Mise">1,0 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-100 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-17</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Jiri Lehecka — Arthur Fils</td>
+      <td data-l="Pari">Jiri Lehecka gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,60</td>
+      <td class="n" data-l="Mise">1,0 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+60 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-17</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Rafael Jodar — Alejandro Tabilo</td>
+      <td data-l="Pari">Alejandro Tabilo gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,86</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-50 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-16</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Katerina Siniakova — Jessica Bouzas Maneiro</td>
+      <td data-l="Pari">Katerina Siniakova gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,55</td>
+      <td class="n" data-l="Mise">1,0 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+55 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-16</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Tereza Valentova — Elina Svitolina</td>
+      <td data-l="Pari">Tereza Valentova gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,94</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+47 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-16</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Adam Walton — Ignacio Buse</td>
+      <td data-l="Pari">Ignacio Buse gagne le match</td>
+      <td class="n" data-l="Cote">2,38</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip loss">Perdu</span></td>
+      <td class="n neg" data-l="Gain">-50 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-16</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Katerina Siniakova — Jessica Bouzas Maneiro</td>
+      <td data-l="Pari">Katerina Siniakova gagne le match</td>
+      <td class="n" data-l="Cote">2,00</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+50 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-15</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Alexandra Eala — Elena-Gabriela Ruse</td>
+      <td data-l="Pari">Elena Gabriela Ruse gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,86</td>
+      <td class="n" data-l="Mise">1,0 %</td>
+      <td data-l="Résultat"><span class="chip vd">Annulé</span></td>
+      <td class="n " data-l="Gain">+0 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-15</td>
+      <td data-l="Match"><span class="tn2">ATP Cincinnati</span><br>Rafael Jodar — Denis Shapovalov</td>
+      <td data-l="Pari">Denis Shapovalov gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,86</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+43 €</td></tr><tr>
+      <td class="nw" data-l="Date">2026-08-15</td>
+      <td data-l="Match"><span class="tn2">WTA Cincinnati</span><br>Kamilla Rakhimova — Maria Sakkari</td>
+      <td data-l="Pari">Kamilla Rakhimova gagne au moins 1 set</td>
+      <td class="n" data-l="Cote">1,79</td>
+      <td class="n" data-l="Mise">0,5 %</td>
+      <td data-l="Résultat"><span class="chip win">Gagné</span></td>
+      <td class="n pos" data-l="Gain">+40 €</td></tr></tbody></table></div>
+
+<footer>
+  Mis à jour le 24/08/2026 à 19:54.<br>
+  
+  Paris sportifs : risque de perte en capital. Ceci n'est pas un conseil en
+  investissement. Interdit aux moins de 18 ans. Jouez responsable —
+  <a href="https://www.joueurs-info-service.fr" target="_blank"
+     rel="noopener">joueurs-info-service.fr</a> (09 74 75 13 13, appel non surtaxé).
+</footer>
+</div><div id="tip"></div>
+<script>
+var SERIES = [{"d": "2026-08-15", "p": 0.0}, {"d": "2026-08-15", "p": 43.0}, {"d": "2026-08-15", "p": 40.0}, {"d": "2026-08-16", "p": 55.0}, {"d": "2026-08-16", "p": 47.0}, {"d": "2026-08-16", "p": -50.0}, {"d": "2026-08-16", "p": 50.0}, {"d": "2026-08-17", "p": -100.0}, {"d": "2026-08-17", "p": 60.0}, {"d": "2026-08-17", "p": -50.0}, {"d": "2026-08-18", "p": 35.0}, {"d": "2026-08-18", "p": 26.0}, {"d": "2026-08-18", "p": 26.0}, {"d": "2026-08-18", "p": -35.0}, {"d": "2026-08-18", "p": -35.0}, {"d": "2026-08-19", "p": 43.0}, {"d": "2026-08-19", "p": -50.0}, {"d": "2026-08-19", "p": -50.0}, {"d": "2026-08-19", "p": -35.0}, {"d": "2026-08-19", "p": 73.0}, {"d": "2026-08-19", "p": 64.0}, {"d": "2026-08-19", "p": -35.0}, {"d": "2026-08-20", "p": 0.0}, {"d": "2026-08-20", "p": 0.0}, {"d": "2026-08-20", "p": -35.0}, {"d": "2026-08-20", "p": 94.0}, {"d": "2026-08-21", "p": 30.0}, {"d": "2026-08-21", "p": 50.0}, {"d": "2026-08-21", "p": 26.0}, {"d": "2026-08-23", "p": -35.0}, {"d": "2026-08-23", "p": -35.0}];
+var tip = document.getElementById('tip');
+
+function showTip(e, txt){
+  tip.textContent = txt; tip.style.opacity = 1;
+  var r = tip.getBoundingClientRect();
+  var x = e.clientX + 14, y = e.clientY - r.height - 10;
+  if (x + r.width > innerWidth - 8) x = e.clientX - r.width - 14;
+  if (y < 8) y = e.clientY + 18;
+  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+}
+function hideTip(){ tip.style.opacity = 0; }
+
+function eur(v){
+  var s = (v > 0 ? '+' : v < 0 ? '-' : '') + Math.abs(Math.round(v));
+  return s.replace(/\B(?=(\d{3})+(?!\d))/g, '\u202f') + ' \u20ac';
+}
+function jjmm(iso){ var p = iso.split('-'); return p[2] + '/' + p[1]; }
+var MOIS = ['janv.','févr.','mars','avr.','mai','juin','juil.','août',
+            'sept.','oct.','nov.','déc.'];
+
+/* Regroupement. La semaine démarre le LUNDI (usage FR) ; le mois est le mois
+   calendaire. La clé sert au tri, le libellé à l'affichage. */
+function bucket(iso, gran){
+  var d = new Date(iso + 'T00:00:00Z');
+  if (gran === 'jour') return {k: iso, l: jjmm(iso)};
+  if (gran === 'semaine'){
+    var dow = (d.getUTCDay() + 6) % 7;            // lundi = 0
+    d.setUTCDate(d.getUTCDate() - dow);
+    var k = d.toISOString().slice(0, 10);
+    return {k: k, l: 'sem. ' + jjmm(k)};
+  }
+  var k2 = iso.slice(0, 7);
+  return {k: k2, l: MOIS[+k2.slice(5, 7) - 1] + ' ' + k2.slice(0, 4)};
+}
+function group(gran){
+  var m = {}, order = [];
+  SERIES.forEach(function(pt){
+    var b = bucket(pt.d, gran);
+    if (!m[b.k]){ m[b.k] = {k: b.k, l: b.l, p: 0, n: 0}; order.push(b.k); }
+    m[b.k].p += pt.p; m[b.k].n += 1;
+  });
+  order.sort();
+  return order.map(function(k){ return m[k]; });
+}
+
+function svgEl(w, h){
+  return '<svg viewBox="0 0 ' + w + ' ' + h + '" role="img">';
+}
+
+/* --- Courbe de P&L cumulé, agrégée par jour --- */
+function drawCurve(){
+  var box = document.getElementById('cumchart');
+  if (!box) return;
+  var days = group('jour');
+  if (!days.length){ box.innerHTML = '<p class="empty">Pas encore de pick réglé.</p>'; return; }
+  var W = Math.max(box.clientWidth || 600, 280), H = 220, PL = 46, PR = 12, PT = 14, PB = 26;
+  var cum = 0, pts = days.map(function(b){ cum += b.p; return {l: b.l, c: cum, p: b.p, n: b.n}; });
+  var cs = pts.map(function(p){ return p.c; });
+  // Les ÉTIQUETTES portent les extrêmes RÉELS du cumul ; les bornes de l'échelle
+  // sont rembourrées pour la respiration. Afficher la borne rembourrée écrivait
+  // « -34 € » sur une courbe qui n'est jamais passée sous zéro.
+  var dmn = Math.min.apply(null, cs), dmx = Math.max.apply(null, cs);
+  var vals = cs.concat([0]);
+  var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals);
+  if (mx === mn){ mx += 1; mn -= 1; }
+  var pad = (mx - mn) * 0.12; mn -= pad; mx += pad;
+  var sx = function(i){ return PL + (pts.length < 2 ? (W - PL - PR) / 2
+             : i * (W - PL - PR) / (pts.length - 1)); };
+  var sy = function(v){ return PT + (mx - v) * (H - PT - PB) / (mx - mn); };
+  var line = pts.map(function(p, i){ return (i ? 'L' : 'M') + sx(i).toFixed(1) + ' ' + sy(p.c).toFixed(1); }).join(' ');
+  var aire = line + ' L' + sx(pts.length - 1).toFixed(1) + ' ' + sy(mn).toFixed(1)
+           + ' L' + sx(0).toFixed(1) + ' ' + sy(mn).toFixed(1) + ' Z';
+  var h = svgEl(W, H);
+  h += '<defs><linearGradient id="ga" x1="0" x2="0" y1="0" y2="1">'
+     + '<stop offset="0%" stop-color="var(--s1)" stop-opacity=".22"/>'
+     + '<stop offset="100%" stop-color="var(--s1)" stop-opacity="0"/></linearGradient></defs>';
+  h += '<path d="' + aire + '" fill="url(#ga)"/>';
+  if (mn < 0 && mx > 0){
+    h += '<line class="gzero" x1="' + PL + '" y1="' + sy(0).toFixed(1) + '" x2="' + (W - PR) + '" y2="' + sy(0).toFixed(1) + '"/>';
+  }
+  h += '<path class="gline" d="' + line + '"/>';
+  h += '<text class="glabel" x="4" y="' + (sy(dmx) + 4).toFixed(1) + '">' + eur(dmx) + '</text>';
+  if (Math.round(dmn) !== Math.round(dmx)){
+    h += '<text class="glabel" x="4" y="' + (sy(dmn) + 4).toFixed(1) + '">' + eur(dmn) + '</text>';
+  }
+  pts.forEach(function(p, i){
+    var t = p.l + '\n' + 'cumul ' + eur(p.c) + '\n' + p.n + ' pick' + (p.n > 1 ? 's' : '') + ' : ' + eur(p.p);
+    h += '<circle class="gdot" cx="' + sx(i).toFixed(1) + '" cy="' + sy(p.c).toFixed(1) + '" r="3.5"/>';
+    h += '<rect class="ghit" x="' + (sx(i) - (W - PL - PR) / Math.max(pts.length, 1) / 2).toFixed(1)
+       + '" y="' + PT + '" width="' + ((W - PL - PR) / Math.max(pts.length, 1)).toFixed(1)
+       + '" height="' + (H - PT - PB) + '" data-t="' + t.replace(/"/g, '&quot;') + '" data-i="' + i + '"/>';
+  });
+  // premier et dernier libellé d'axe seulement : au-delà ça se chevauche
+  h += '<text class="glabel" x="' + PL + '" y="' + (H - 8) + '">' + pts[0].l + '</text>';
+  if (pts.length > 1){
+    h += '<text class="glabel" x="' + (W - PR) + '" y="' + (H - 8) + '" text-anchor="end">' + pts[pts.length - 1].l + '</text>';
+  }
+  box.innerHTML = h + '</svg>';
+  wireHover(box);
+}
+
+/* --- Colonnes de P&L par période --- */
+function drawBars(gran){
+  var box = document.getElementById('barchart');
+  if (!box) return;
+  var b = group(gran);
+  if (!b.length){ box.innerHTML = '<p class="empty">Pas encore de pick réglé.</p>'; return; }
+  var W = Math.max(box.clientWidth || 600, 280), H = 220, PL = 46, PR = 12, PT = 14, PB = 26;
+  var ps = b.map(function(x){ return x.p; });
+  var dmn = Math.min.apply(null, ps), dmx = Math.max.apply(null, ps);
+  var vals = ps.concat([0]);
+  var mn = Math.min.apply(null, vals), mx = Math.max.apply(null, vals);
+  if (mx === mn){ mx += 1; mn -= 1; }
+  var pad = (mx - mn) * 0.12; mn -= pad; mx += pad;
+  var sy = function(v){ return PT + (mx - v) * (H - PT - PB) / (mx - mn); };
+  var slot = (W - PL - PR) / b.length, bw = Math.max(Math.min(slot - 6, 46), 3);
+  var y0 = sy(0);
+  var h = svgEl(W, H);
+  h += '<line class="gzero" x1="' + PL + '" y1="' + y0.toFixed(1) + '" x2="' + (W - PR) + '" y2="' + y0.toFixed(1) + '"/>';
+  b.forEach(function(x, i){
+    var y = sy(Math.max(x.p, 0)), hh = Math.max(Math.abs(sy(x.p) - y0), 1.5);
+    var cx = PL + i * slot + slot / 2;
+    var t = x.l + '\n' + eur(x.p) + '\n' + x.n + ' pick' + (x.n > 1 ? 's' : '');
+    h += '<rect class="gbar" x="' + (cx - bw / 2).toFixed(1) + '" y="' + y.toFixed(1)
+       + '" width="' + bw.toFixed(1) + '" height="' + hh.toFixed(1) + '" rx="3" fill="'
+       + (x.p >= 0 ? 'var(--pos)' : 'var(--neg)') + '" data-t="' + t.replace(/"/g, '&quot;') + '"/>';
+  });
+  h += '<text class="glabel" x="4" y="' + (sy(dmx) + 4).toFixed(1) + '">' + eur(dmx) + '</text>';
+  if (Math.round(dmn) !== Math.round(dmx)){
+    h += '<text class="glabel" x="4" y="' + (sy(dmn) + 4).toFixed(1) + '">' + eur(dmn) + '</text>';
+  }
+  h += '<text class="glabel" x="' + PL + '" y="' + (H - 8) + '">' + b[0].l + '</text>';
+  if (b.length > 1){
+    h += '<text class="glabel" x="' + (W - PR) + '" y="' + (H - 8) + '" text-anchor="end">' + b[b.length - 1].l + '</text>';
+  }
+  box.innerHTML = h + '</svg>';
+  wireHover(box);
+}
+
+/* Une seule délégation par graphe : moins de handlers que par élément, et les
+   points de la courbe s'allument via la zone de survol large (viser un cercle de
+   3 px au doigt est impossible). */
+function wireHover(box){
+  box.addEventListener('mousemove', function(e){
+    var el = e.target.closest('[data-t]');
+    if (!el){ hideTip(); return; }
+    showTip(e, el.getAttribute('data-t'));
+    var i = el.getAttribute('data-i');
+    if (i !== null){
+      box.querySelectorAll('.gdot.on').forEach(function(d){ d.classList.remove('on'); });
+      var dots = box.querySelectorAll('.gdot');
+      if (dots[+i]) dots[+i].classList.add('on');
+    }
+  });
+  box.addEventListener('mouseleave', function(){
+    hideTip();
+    box.querySelectorAll('.gdot.on').forEach(function(d){ d.classList.remove('on'); });
+  });
+  // Tactile : un appui vaut un survol.
+  box.addEventListener('touchstart', function(e){
+    var t = e.touches[0];
+    var el = document.elementFromPoint(t.clientX, t.clientY);
+    var tgt = el && el.closest ? el.closest('[data-t]') : null;
+    if (tgt) showTip({clientX: t.clientX, clientY: t.clientY}, tgt.getAttribute('data-t'));
+  }, {passive: true});
+}
+
+var GRAN = 'jour';
+function redraw(){ drawCurve(); drawBars(GRAN); }
+document.querySelectorAll('.seg button').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    GRAN = btn.dataset.g;
+    document.querySelectorAll('.seg button').forEach(function(b){
+      b.classList.toggle('on', b === btn);
+    });
+    drawBars(GRAN);
+  });
+});
+var _rt;
+addEventListener('resize', function(){ clearTimeout(_rt); _rt = setTimeout(redraw, 140); });
+redraw();
+</script>
+</body></html>
