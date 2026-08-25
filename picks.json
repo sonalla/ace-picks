@@ -1,15 +1,15 @@
 {
- "generated_at": "2026-08-24T19:58:44.677182+00:00",
+ "generated_at": "2026-08-25T06:00:22.019427+00:00",
  "stats": {
   "n_total": 36,
-  "n_regles": 31,
-  "n_ouverts": 5,
-  "pnl_eur": 217.0,
-  "mise_eur": 1515.0,
-  "roi": 14.323432343234325,
-  "hit": 57.14285714285714,
-  "roi_lo": -20.653061224489797,
-  "roi_hi": 44.50867052023121
+  "n_regles": 34,
+  "n_ouverts": 2,
+  "pnl_eur": 387.0,
+  "mise_eur": 1715.0,
+  "roi": 22.565597667638485,
+  "hit": 61.29032258064516,
+  "roi_lo": -8.497109826589595,
+  "roi_hi": 52.09169054441261
  },
  "picks": [
   {
@@ -20,8 +20,8 @@
    "cote": 1.51,
    "mise_pct": 1.0,
    "mise_eur": 100.0,
-   "resultat": "",
-   "pnl_eur": null,
+   "resultat": "V",
+   "pnl_eur": 51.0,
    "analyse": "",
    "book": ""
   },
@@ -33,8 +33,8 @@
    "cote": 2.38,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
+   "resultat": "V",
+   "pnl_eur": 69.0,
    "analyse": "",
    "book": ""
   },
@@ -59,8 +59,8 @@
    "cote": 2.0,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
+   "resultat": "V",
+   "pnl_eur": 50.0,
    "analyse": "",
    "book": ""
   },
