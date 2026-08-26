@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-08-26T06:00:05.445952+00:00",
+ "generated_at": "2026-08-26T16:30:05.166335+00:00",
  "stats": {
   "n_total": 36,
-  "n_regles": 35,
-  "n_ouverts": 1,
+  "n_regles": 36,
+  "n_ouverts": 0,
   "pnl_eur": 452.0,
   "mise_eur": 1765.0,
   "roi": 25.609065155807365,
@@ -72,8 +72,8 @@
    "cote": 1.61,
    "mise_pct": 0.35000000000000003,
    "mise_eur": 35.0,
-   "resultat": "",
-   "pnl_eur": null,
+   "resultat": "void",
+   "pnl_eur": 0.0,
    "analyse": "",
    "book": ""
   },
