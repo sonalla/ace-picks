@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-08-26T16:30:05.166335+00:00",
+ "generated_at": "2026-08-28T11:00:01.224526+00:00",
  "stats": {
-  "n_total": 36,
+  "n_total": 38,
   "n_regles": 36,
-  "n_ouverts": 0,
+  "n_ouverts": 2,
   "pnl_eur": 452.0,
   "mise_eur": 1765.0,
   "roi": 25.609065155807365,
@@ -12,6 +12,32 @@
   "roi_hi": 53.670212765957444
  },
  "picks": [
+  {
+   "date": "2026-08-28",
+   "tournoi": "ATP Winston Salem",
+   "joueurs": "Ignacio Buse — Benjamin Bonzi",
+   "pari": "Ignacio Buse gagne au moins 1 set",
+   "cote": 1.43,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Buse gagne 58 % de ses points au service sur hard (27 matchs), contre 61 % à Bonzi. Buse est 35e mondial, mieux classé que Bonzi (99e). Le modèle lui donne 82 % de réussite ; la cote en paie 65 %.",
+   "book": "Betify"
+  },
+  {
+   "date": "2026-08-28",
+   "tournoi": "WTA Monterrey",
+   "joueurs": "Diane Parry — Ann Li",
+   "pari": "Diane Parry gagne au moins 1 set",
+   "cote": 1.57,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Parry est 55e mondial, moins bien classé que Li (29e). Le modèle lui donne 73 % de réussite ; la cote en paie 58 %.",
+   "book": "Betify"
+  },
   {
    "date": "2026-08-24",
    "tournoi": "WTA Monterrey",
