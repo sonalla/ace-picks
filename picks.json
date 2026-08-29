@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-08-29T06:00:01.447232+00:00",
+ "generated_at": "2026-08-29T07:30:05.188844+00:00",
  "stats": {
-  "n_total": 38,
+  "n_total": 40,
   "n_regles": 38,
-  "n_ouverts": 0,
+  "n_ouverts": 2,
   "pnl_eur": 502.0,
   "mise_eur": 1865.0,
   "roi": 26.916890080428956,
@@ -12,6 +12,32 @@
   "roi_hi": 52.66490765171504
  },
  "picks": [
+  {
+   "date": "2026-08-29",
+   "tournoi": "ATP Winston Salem",
+   "joueurs": "Arthur Fery — Ignacio Buse",
+   "pari": "Ignacio Buse gagne au moins 1 set",
+   "cote": 1.52,
+   "mise_pct": 1.0,
+   "mise_eur": 100.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Buse gagne 58 % de ses points au service sur hard (27 matchs), contre 60 % à Fery. Buse est 35e mondial, mieux classé que Fery (141e). Le modèle lui donne 84 % de réussite ; la cote en paie 66 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-08-29",
+   "tournoi": "WTA Monterrey",
+   "joueurs": "Diane Parry — Elise Mertens",
+   "pari": "Diane Parry gagne au moins 1 set",
+   "cote": 1.83,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Parry gagne 57 % de ses points au service sur hard (62 matchs), contre 52 % à Mertens. Parry est 55e mondial, moins bien classé que Mertens (22e). Le modèle lui donne 82 % de réussite ; la cote en paie 55 %.",
+   "book": ""
+  },
   {
    "date": "2026-08-28",
    "tournoi": "ATP Winston Salem",
