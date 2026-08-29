@@ -1,15 +1,15 @@
 {
- "generated_at": "2026-08-29T07:30:05.188844+00:00",
+ "generated_at": "2026-08-29T22:00:05.084825+00:00",
  "stats": {
   "n_total": 40,
-  "n_regles": 38,
-  "n_ouverts": 2,
-  "pnl_eur": 502.0,
-  "mise_eur": 1865.0,
-  "roi": 26.916890080428956,
-  "hit": 64.70588235294117,
-  "roi_lo": -2.890855457227139,
-  "roi_hi": 52.66490765171504
+  "n_regles": 39,
+  "n_ouverts": 1,
+  "pnl_eur": 554.0,
+  "mise_eur": 1965.0,
+  "roi": 28.193384223918578,
+  "hit": 65.71428571428571,
+  "roi_lo": 0.4878048780487808,
+  "roi_hi": 54.441913439635535
  },
  "picks": [
   {
@@ -20,9 +20,9 @@
    "cote": 1.52,
    "mise_pct": 1.0,
    "mise_eur": 100.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Buse gagne 58 % de ses points au service sur hard (27 matchs), contre 60 % à Fery. Buse est 35e mondial, mieux classé que Fery (141e). Le modèle lui donne 84 % de réussite ; la cote en paie 66 %.",
+   "resultat": "V",
+   "pnl_eur": 52.0,
+   "analyse": "",
    "book": ""
   },
   {
