@@ -1,15 +1,15 @@
 {
- "generated_at": "2026-08-28T11:00:01.224526+00:00",
+ "generated_at": "2026-08-29T06:00:01.447232+00:00",
  "stats": {
   "n_total": 38,
-  "n_regles": 36,
-  "n_ouverts": 2,
-  "pnl_eur": 452.0,
-  "mise_eur": 1765.0,
-  "roi": 25.609065155807365,
-  "hit": 62.5,
-  "roi_lo": -4.756446991404011,
-  "roi_hi": 53.670212765957444
+  "n_regles": 38,
+  "n_ouverts": 0,
+  "pnl_eur": 502.0,
+  "mise_eur": 1865.0,
+  "roi": 26.916890080428956,
+  "hit": 64.70588235294117,
+  "roi_lo": -2.890855457227139,
+  "roi_hi": 52.66490765171504
  },
  "picks": [
   {
@@ -20,9 +20,9 @@
    "cote": 1.43,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Buse gagne 58 % de ses points au service sur hard (27 matchs), contre 61 % à Bonzi. Buse est 35e mondial, mieux classé que Bonzi (99e). Le modèle lui donne 82 % de réussite ; la cote en paie 65 %.",
+   "resultat": "V",
+   "pnl_eur": 21.0,
+   "analyse": "",
    "book": "Betify"
   },
   {
@@ -33,9 +33,9 @@
    "cote": 1.57,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Parry est 55e mondial, moins bien classé que Li (29e). Le modèle lui donne 73 % de réussite ; la cote en paie 58 %.",
+   "resultat": "V",
+   "pnl_eur": 28.999999999999996,
+   "analyse": "",
    "book": "Betify"
   },
   {
