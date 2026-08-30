@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-08-30T06:00:05.407338+00:00",
+ "generated_at": "2026-08-30T07:30:05.248846+00:00",
  "stats": {
-  "n_total": 40,
+  "n_total": 43,
   "n_regles": 40,
-  "n_ouverts": 0,
+  "n_ouverts": 3,
   "pnl_eur": 596.0,
   "mise_eur": 2015.0,
   "roi": 29.578163771712155,
@@ -12,6 +12,45 @@
   "roi_hi": 56.130536130536136
  },
  "picks": [
+  {
+   "date": "2026-08-30",
+   "tournoi": "ATP US Open",
+   "joueurs": "Daniel Merida — Marton Fucsovics",
+   "pari": "Marton Fucsovics gagne au moins 1 set",
+   "cote": 1.78,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Fucsovics gagne 59 % de ses points au service sur hard (96 matchs), contre 56 % à Aguilar. Le modèle lui donne 85 % de réussite ; la cote en paie 56 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-08-30",
+   "tournoi": "ATP US Open",
+   "joueurs": "Jiri Lehecka — Pablo Carreno Busta",
+   "pari": "Pablo Carreno Busta gagne au moins 1 set",
+   "cote": 1.69,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Busta gagne 59 % de ses points au service sur hard (82 matchs), contre 63 % à Lehecka. Au retour, il prend 33 % des points contre 27 % à son adversaire. Busta est 71e mondial, moins bien classé que Lehecka (12e). Le modèle lui donne 86 % de réussite ; la cote en paie 59 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-08-30",
+   "tournoi": "ATP US Open",
+   "joueurs": "Thiago Agustin Tirante — Adrian Mannarino",
+   "pari": "Adrian Mannarino gagne au moins 1 set",
+   "cote": 1.52,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Au retour, il prend 32 % des points contre 28 % à son adversaire. Le modèle lui donne 91 % de réussite ; la cote en paie 66 %.",
+   "book": ""
+  },
   {
    "date": "2026-08-29",
    "tournoi": "ATP Winston Salem",
