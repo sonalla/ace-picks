@@ -1,15 +1,15 @@
 {
- "generated_at": "2026-08-29T22:00:05.084825+00:00",
+ "generated_at": "2026-08-30T06:00:05.407338+00:00",
  "stats": {
   "n_total": 40,
-  "n_regles": 39,
-  "n_ouverts": 1,
-  "pnl_eur": 554.0,
-  "mise_eur": 1965.0,
-  "roi": 28.193384223918578,
-  "hit": 65.71428571428571,
-  "roi_lo": 0.4878048780487808,
-  "roi_hi": 54.441913439635535
+  "n_regles": 40,
+  "n_ouverts": 0,
+  "pnl_eur": 596.0,
+  "mise_eur": 2015.0,
+  "roi": 29.578163771712155,
+  "hit": 66.66666666666666,
+  "roi_lo": 1.0335917312661502,
+  "roi_hi": 56.130536130536136
  },
  "picks": [
   {
@@ -33,9 +33,9 @@
    "cote": 1.83,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Parry gagne 57 % de ses points au service sur hard (62 matchs), contre 52 % à Mertens. Parry est 55e mondial, moins bien classé que Mertens (22e). Le modèle lui donne 82 % de réussite ; la cote en paie 55 %.",
+   "resultat": "V",
+   "pnl_eur": 42.0,
+   "analyse": "",
    "book": ""
   },
   {
