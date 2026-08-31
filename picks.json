@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-08-30T09:00:05.205843+00:00",
+ "generated_at": "2026-08-31T07:30:05.133290+00:00",
  "stats": {
-  "n_total": 43,
+  "n_total": 46,
   "n_regles": 40,
-  "n_ouverts": 3,
+  "n_ouverts": 6,
   "pnl_eur": 596.0,
   "mise_eur": 2015.0,
   "roi": 29.578163771712155,
@@ -12,6 +12,45 @@
   "roi_hi": 56.130536130536136
  },
  "picks": [
+  {
+   "date": "2026-08-31",
+   "tournoi": "ATP US Open",
+   "joueurs": "Roman Safiullin — Carlos Alcaraz",
+   "pari": "Roman Safiullin gagne au moins 1 set",
+   "cote": 1.77,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Safiullin gagne 63 % de ses points au service sur hard (84 matchs), contre 56 % à Alcaraz. Safiullin est 135e mondial, moins bien classé que Alcaraz (2e). Le modèle lui donne 91 % de réussite ; la cote en paie 56 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-08-31",
+   "tournoi": "ATP US Open",
+   "joueurs": "Matteo Berrettini — Stan Wawrinka",
+   "pari": "Stan Wawrinka gagne au moins 1 set",
+   "cote": 1.7,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Au retour, il prend 31 % des points contre 28 % à son adversaire. Wawrinka est 110e mondial, moins bien classé que Berrettini (48e). Le modèle lui donne 91 % de réussite ; la cote en paie 59 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-08-31",
+   "tournoi": "WTA US Open Wo",
+   "joueurs": "Tamara Zidansek — Maria Timofeeva",
+   "pari": "Tamara Zidansek gagne au moins 1 set",
+   "cote": 1.89,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Zidansek gagne 51 % de ses points au service sur hard (39 matchs), contre 47 % à Timofeeva. Au retour, il prend 45 % des points contre 37 % à son adversaire. Zidansek est 134e mondial, moins bien classé que Timofeeva (93e). Le modèle lui donne 82 % de réussite ; la cote en paie 53 %.",
+   "book": ""
+  },
   {
    "date": "2026-08-30",
    "tournoi": "ATP US Open",
