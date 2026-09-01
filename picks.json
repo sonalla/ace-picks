@@ -1,15 +1,15 @@
 {
- "generated_at": "2026-09-01T07:30:05.229836+00:00",
+ "generated_at": "2026-09-01T12:30:05.110813+00:00",
  "stats": {
   "n_total": 49,
-  "n_regles": 40,
-  "n_ouverts": 9,
-  "pnl_eur": 596.0,
-  "mise_eur": 2015.0,
-  "roi": 29.578163771712155,
-  "hit": 66.66666666666666,
-  "roi_lo": 1.0335917312661502,
-  "roi_hi": 56.130536130536136
+  "n_regles": 41,
+  "n_ouverts": 8,
+  "pnl_eur": 546.0,
+  "mise_eur": 2065.0,
+  "roi": 26.440677966101696,
+  "hit": 64.86486486486487,
+  "roi_lo": -1.0328638497652578,
+  "roi_hi": 51.163895486935864
  },
  "picks": [
   {
@@ -85,9 +85,9 @@
    "cote": 1.89,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Zidansek gagne 51 % de ses points au service sur hard (39 matchs), contre 47 % à Timofeeva. Au retour, il prend 45 % des points contre 37 % à son adversaire. Zidansek est 134e mondial, moins bien classé que Timofeeva (93e). Le modèle lui donne 82 % de réussite ; la cote en paie 53 %.",
+   "resultat": "D",
+   "pnl_eur": -50.0,
+   "analyse": "",
    "book": ""
   },
   {
