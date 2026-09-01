@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-08-31T07:30:05.133290+00:00",
+ "generated_at": "2026-09-01T07:30:05.229836+00:00",
  "stats": {
-  "n_total": 46,
+  "n_total": 49,
   "n_regles": 40,
-  "n_ouverts": 6,
+  "n_ouverts": 9,
   "pnl_eur": 596.0,
   "mise_eur": 2015.0,
   "roi": 29.578163771712155,
@@ -12,6 +12,45 @@
   "roi_hi": 56.130536130536136
  },
  "picks": [
+  {
+   "date": "2026-09-01",
+   "tournoi": "ATP US Open",
+   "joueurs": "Jan Choinski — Botic Van de Zandschulp",
+   "pari": "Jan Choinski gagne au moins 1 set",
+   "cote": 1.64,
+   "mise_pct": 1.0,
+   "mise_eur": 100.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Choinski gagne 61 % de ses points au service sur hard (13 matchs), contre 58 % à Zandschulp. Choinski est 105e mondial, moins bien classé que Zandschulp (55e). Le modèle lui donne 84 % de réussite ; la cote en paie 61 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-09-01",
+   "tournoi": "ATP US Open",
+   "joueurs": "Nishesh Basavareddy — Tristan Schoolkate",
+   "pari": "Tristan Schoolkate gagne au moins 1 set",
+   "cote": 1.6,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Schoolkate gagne 76 % de ses points au service sur hard (21 matchs), contre 63 % à Basavareddy. Le modèle lui donne 96 % de réussite ; la cote en paie 62 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-09-01",
+   "tournoi": "ATP US Open",
+   "joueurs": "Francisco Comesana — Flavio Cobolli",
+   "pari": "Francisco Comesana gagne au moins 1 set",
+   "cote": 1.71,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Comesana gagne 61 % de ses points au service sur hard (28 matchs), contre 58 % à Cobolli. Comesana est 89e mondial, moins bien classé que Cobolli (10e). Le modèle lui donne 88 % de réussite ; la cote en paie 58 %.",
+   "book": ""
+  },
   {
    "date": "2026-08-31",
    "tournoi": "ATP US Open",
