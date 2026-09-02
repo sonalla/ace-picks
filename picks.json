@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-09-02T06:00:05.716224+00:00",
+ "generated_at": "2026-09-02T07:30:05.402950+00:00",
  "stats": {
-  "n_total": 49,
+  "n_total": 52,
   "n_regles": 48,
-  "n_ouverts": 1,
+  "n_ouverts": 4,
   "pnl_eur": 506.0,
   "mise_eur": 2415.0,
   "roi": 20.952380952380953,
@@ -12,6 +12,45 @@
   "roi_hi": 44.59627329192546
  },
  "picks": [
+  {
+   "date": "2026-09-02",
+   "tournoi": "ATP US Open",
+   "joueurs": "Alexander Bublik — Adrian Mannarino",
+   "pari": "Adrian Mannarino gagne au moins 1 set",
+   "cote": 1.64,
+   "mise_pct": 1.0,
+   "mise_eur": 100.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Mannarino gagne 59 % de ses points au service sur hard (162 matchs), contre 62 % à Bublik. Au retour, il prend 32 % des points contre 28 % à son adversaire. Mannarino est 46e mondial, moins bien classé que Bublik (11e). Le modèle lui donne 85 % de réussite ; la cote en paie 61 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-09-02",
+   "tournoi": "ATP US Open",
+   "joueurs": "Dino Prizmic — Tommy Paul",
+   "pari": "Dino Prizmic gagne au moins 1 set",
+   "cote": 1.78,
+   "mise_pct": 1.0,
+   "mise_eur": 100.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Prizmic est 70e mondial, moins bien classé que Paul (28e). Le modèle lui donne 75 % de réussite ; la cote en paie 56 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-09-02",
+   "tournoi": "ATP US Open",
+   "joueurs": "Lloyd Harris — Stefanos Tsitsipas",
+   "pari": "Lloyd Harris gagne au moins 1 set",
+   "cote": 1.51,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Harris gagne 66 % de ses points au service sur hard (34 matchs), contre 61 % à Tsitsipas. Au retour, il prend 32 % des points contre 27 % à son adversaire. Harris est 160e mondial, moins bien classé que Tsitsipas (84e). Le modèle lui donne 97 % de réussite ; la cote en paie 66 %.",
+   "book": ""
+  },
   {
    "date": "2026-09-01",
    "tournoi": "ATP US Open",
