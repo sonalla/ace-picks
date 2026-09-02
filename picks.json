@@ -1,15 +1,15 @@
 {
- "generated_at": "2026-09-01T12:30:05.110813+00:00",
+ "generated_at": "2026-09-02T06:00:05.716224+00:00",
  "stats": {
   "n_total": 49,
-  "n_regles": 41,
-  "n_ouverts": 8,
-  "pnl_eur": 546.0,
-  "mise_eur": 2065.0,
-  "roi": 26.440677966101696,
-  "hit": 64.86486486486487,
-  "roi_lo": -1.0328638497652578,
-  "roi_hi": 51.163895486935864
+  "n_regles": 48,
+  "n_ouverts": 1,
+  "pnl_eur": 506.0,
+  "mise_eur": 2415.0,
+  "roi": 20.952380952380953,
+  "hit": 63.63636363636363,
+  "roi_lo": -4.37246963562753,
+  "roi_hi": 44.59627329192546
  },
  "picks": [
   {
@@ -33,9 +33,9 @@
    "cote": 1.6,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Schoolkate gagne 76 % de ses points au service sur hard (21 matchs), contre 63 % à Basavareddy. Le modèle lui donne 96 % de réussite ; la cote en paie 62 %.",
+   "resultat": "V",
+   "pnl_eur": 30.0,
+   "analyse": "",
    "book": ""
   },
   {
@@ -46,9 +46,9 @@
    "cote": 1.71,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Comesana gagne 61 % de ses points au service sur hard (28 matchs), contre 58 % à Cobolli. Comesana est 89e mondial, moins bien classé que Cobolli (10e). Le modèle lui donne 88 % de réussite ; la cote en paie 58 %.",
+   "resultat": "V",
+   "pnl_eur": 35.0,
+   "analyse": "",
    "book": ""
   },
   {
@@ -59,9 +59,9 @@
    "cote": 1.77,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Safiullin gagne 63 % de ses points au service sur hard (84 matchs), contre 56 % à Alcaraz. Safiullin est 135e mondial, moins bien classé que Alcaraz (2e). Le modèle lui donne 91 % de réussite ; la cote en paie 56 %.",
+   "resultat": "D",
+   "pnl_eur": -50.0,
+   "analyse": "",
    "book": ""
   },
   {
@@ -72,9 +72,9 @@
    "cote": 1.7,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Au retour, il prend 31 % des points contre 28 % à son adversaire. Wawrinka est 110e mondial, moins bien classé que Berrettini (48e). Le modèle lui donne 91 % de réussite ; la cote en paie 59 %.",
+   "resultat": "D",
+   "pnl_eur": -50.0,
+   "analyse": "",
    "book": ""
   },
   {
@@ -98,9 +98,9 @@
    "cote": 1.62,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Fucsovics gagne 59 % de ses points au service sur hard (96 matchs), contre 56 % à Aguilar. Le modèle lui donne 85 % de réussite ; la cote en paie 56 %.",
+   "resultat": "D",
+   "pnl_eur": -50.0,
+   "analyse": "",
    "book": "Betclic"
   },
   {
@@ -111,9 +111,9 @@
    "cote": 1.52,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Busta gagne 59 % de ses points au service sur hard (82 matchs), contre 63 % à Lehecka. Au retour, il prend 33 % des points contre 27 % à son adversaire. Busta est 71e mondial, moins bien classé que Lehecka (12e). Le modèle lui donne 86 % de réussite ; la cote en paie 59 %.",
+   "resultat": "V",
+   "pnl_eur": 26.0,
+   "analyse": "",
    "book": "Betclic"
   },
   {
@@ -124,9 +124,9 @@
    "cote": 1.39,
    "mise_pct": 0.5,
    "mise_eur": 50.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Au retour, il prend 32 % des points contre 28 % à son adversaire. Le modèle lui donne 91 % de réussite ; la cote en paie 66 %.",
+   "resultat": "V",
+   "pnl_eur": 19.0,
+   "analyse": "",
    "book": "Betclic"
   },
   {
