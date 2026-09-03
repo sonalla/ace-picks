@@ -1,15 +1,15 @@
 {
- "generated_at": "2026-09-02T07:30:05.402950+00:00",
+ "generated_at": "2026-09-03T06:00:05.963986+00:00",
  "stats": {
   "n_total": 52,
-  "n_regles": 48,
-  "n_ouverts": 4,
-  "pnl_eur": 506.0,
-  "mise_eur": 2415.0,
-  "roi": 20.952380952380953,
-  "hit": 63.63636363636363,
-  "roi_lo": -4.37246963562753,
-  "roi_hi": 44.59627329192546
+  "n_regles": 49,
+  "n_ouverts": 3,
+  "pnl_eur": 406.0,
+  "mise_eur": 2515.0,
+  "roi": 16.143141153081512,
+  "hit": 62.22222222222222,
+  "roi_lo": -10.459518599562363,
+  "roi_hi": 40.63636363636364
  },
  "picks": [
   {
@@ -59,9 +59,9 @@
    "cote": 1.64,
    "mise_pct": 1.0,
    "mise_eur": 100.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Choinski gagne 61 % de ses points au service sur hard (13 matchs), contre 58 % à Zandschulp. Choinski est 105e mondial, moins bien classé que Zandschulp (55e). Le modèle lui donne 84 % de réussite ; la cote en paie 61 %.",
+   "resultat": "D",
+   "pnl_eur": -100.0,
+   "analyse": "",
    "book": ""
   },
   {
