@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-09-03T06:00:05.963986+00:00",
+ "generated_at": "2026-09-03T07:30:05.282787+00:00",
  "stats": {
-  "n_total": 52,
+  "n_total": 54,
   "n_regles": 49,
-  "n_ouverts": 3,
+  "n_ouverts": 5,
   "pnl_eur": 406.0,
   "mise_eur": 2515.0,
   "roi": 16.143141153081512,
@@ -12,6 +12,32 @@
   "roi_hi": 40.63636363636364
  },
  "picks": [
+  {
+   "date": "2026-09-03",
+   "tournoi": "WTA US Open Wo",
+   "joueurs": "Harriet Dart — Marie Bouzkova",
+   "pari": "Harriet Dart gagne au moins 1 set",
+   "cote": 2.56,
+   "mise_pct": 0.35000000000000003,
+   "mise_eur": 35.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Dart gagne 49 % de ses points au service sur hard (44 matchs), contre 51 % à Bouzkova. Au retour, il prend 43 % des points contre 38 % à son adversaire. Dart est 160e mondial, moins bien classé que Bouzkova (28e). Le modèle lui donne 79 % de réussite ; la cote en paie 39 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-09-03",
+   "tournoi": "WTA US Open Wo",
+   "joueurs": "Lilli Tagger — Amanda Anisimova",
+   "pari": "Lilli Tagger gagne au moins 1 set",
+   "cote": 2.4,
+   "mise_pct": 0.35000000000000003,
+   "mise_eur": 35.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Tagger gagne 55 % de ses points au service sur hard (9 matchs), contre 50 % à Anisimova. Tagger est 86e mondial, moins bien classé que Anisimova (5e). Le modèle lui donne 70 % de réussite ; la cote en paie 42 %.",
+   "book": ""
+  },
   {
    "date": "2026-09-02",
    "tournoi": "ATP US Open",
