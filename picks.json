@@ -1,15 +1,15 @@
 {
- "generated_at": "2026-09-03T07:30:05.282787+00:00",
+ "generated_at": "2026-09-04T06:00:05.632905+00:00",
  "stats": {
   "n_total": 54,
-  "n_regles": 49,
-  "n_ouverts": 5,
-  "pnl_eur": 406.0,
-  "mise_eur": 2515.0,
-  "roi": 16.143141153081512,
-  "hit": 62.22222222222222,
-  "roi_lo": -10.459518599562363,
-  "roi_hi": 40.63636363636364
+  "n_regles": 51,
+  "n_ouverts": 3,
+  "pnl_eur": 420.0,
+  "mise_eur": 2585.0,
+  "roi": 16.247582205029012,
+  "hit": 61.702127659574465,
+  "roi_lo": -10.0,
+  "roi_hi": 40.12474012474013
  },
  "picks": [
   {
@@ -20,9 +20,9 @@
    "cote": 2.56,
    "mise_pct": 0.35000000000000003,
    "mise_eur": 35.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Dart gagne 49 % de ses points au service sur hard (44 matchs), contre 51 % à Bouzkova. Au retour, il prend 43 % des points contre 38 % à son adversaire. Dart est 160e mondial, moins bien classé que Bouzkova (28e). Le modèle lui donne 79 % de réussite ; la cote en paie 39 %.",
+   "resultat": "D",
+   "pnl_eur": -35.0,
+   "analyse": "",
    "book": ""
   },
   {
@@ -33,9 +33,9 @@
    "cote": 2.4,
    "mise_pct": 0.35000000000000003,
    "mise_eur": 35.0,
-   "resultat": "",
-   "pnl_eur": null,
-   "analyse": "Tagger gagne 55 % de ses points au service sur hard (9 matchs), contre 50 % à Anisimova. Tagger est 86e mondial, moins bien classé que Anisimova (5e). Le modèle lui donne 70 % de réussite ; la cote en paie 42 %.",
+   "resultat": "V",
+   "pnl_eur": 49.0,
+   "analyse": "",
    "book": ""
   },
   {
