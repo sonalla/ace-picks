@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-09-04T06:00:05.632905+00:00",
+ "generated_at": "2026-09-05T07:30:05.205884+00:00",
  "stats": {
-  "n_total": 54,
+  "n_total": 59,
   "n_regles": 51,
-  "n_ouverts": 3,
+  "n_ouverts": 8,
   "pnl_eur": 420.0,
   "mise_eur": 2585.0,
   "roi": 16.247582205029012,
@@ -12,6 +12,71 @@
   "roi_hi": 40.12474012474013
  },
  "picks": [
+  {
+   "date": "2026-09-05",
+   "tournoi": "ATP US Open",
+   "joueurs": "Alexander Zverev — Alejandro Tabilo",
+   "pari": "Alejandro Tabilo gagne au moins 1 set",
+   "cote": 1.85,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Au retour, il prend 28 % des points contre 26 % à son adversaire. Tabilo est 31e mondial, moins bien classé que Zverev (3e). Le modèle lui donne 85 % de réussite ; la cote en paie 54 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-09-05",
+   "tournoi": "WTA US Open Wo",
+   "joueurs": "Madison Keys — Qinwen Zheng",
+   "pari": "Qinwen Zheng gagne au moins 1 set",
+   "cote": 1.74,
+   "mise_pct": 0.5,
+   "mise_eur": 50.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Zheng gagne 59 % de ses points au service sur hard (128 matchs), contre 55 % à Keys. Zheng est 122e mondial, moins bien classé que Keys (26e). Le modèle lui donne 78 % de réussite ; la cote en paie 58 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-09-05",
+   "tournoi": "WTA US Open Wo",
+   "joueurs": "Mirra Andreeva — Nikola Bartunkova",
+   "pari": "Nikola Bartunkova gagne au moins 1 set",
+   "cote": 2.33,
+   "mise_pct": 0.35000000000000003,
+   "mise_eur": 35.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Bartunkova gagne 55 % de ses points au service sur hard (16 matchs), contre 51 % à Andreeva. Au retour, il prend 40 % des points contre 37 % à son adversaire. Bartunkova est 61e mondial, moins bien classé que Andreeva (6e). Le modèle lui donne 85 % de réussite ; la cote en paie 43 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-09-05",
+   "tournoi": "WTA US Open Wo",
+   "joueurs": "Anastasia Potapova — Amanda Anisimova",
+   "pari": "Anastasia Potapova gagne au moins 1 set",
+   "cote": 2.56,
+   "mise_pct": 0.35000000000000003,
+   "mise_eur": 35.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Potapova gagne 48 % de ses points au service sur hard (135 matchs), contre 50 % à Anisimova. Au retour, il prend 40 % des points contre 36 % à son adversaire. Potapova est 27e mondial, moins bien classé que Anisimova (5e). Le modèle lui donne 75 % de réussite ; la cote en paie 39 %.",
+   "book": ""
+  },
+  {
+   "date": "2026-09-05",
+   "tournoi": "WTA US Open Wo",
+   "joueurs": "Iga Swiatek — Marie Bouzkova",
+   "pari": "Marie Bouzkova gagne au moins 1 set",
+   "cote": 2.64,
+   "mise_pct": 0.35000000000000003,
+   "mise_eur": 35.0,
+   "resultat": "",
+   "pnl_eur": null,
+   "analyse": "Bouzkova gagne 51 % de ses points au service sur hard (143 matchs), contre 49 % à Swiatek. Il a pris au moins un set dans 0 de leurs 3 confrontations. Bouzkova est 28e mondial, moins bien classé que Swiatek (3e). Le modèle lui donne 71 % de réussite ; la cote en paie 38 %.",
+   "book": ""
+  },
   {
    "date": "2026-09-03",
    "tournoi": "WTA US Open Wo",
